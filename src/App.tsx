@@ -1,24 +1,56 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {
+  BrowserRouter,
+  Route,
+  Routes, //switch
+} from "react-router-dom";
+
+import SideNav from "./components/SideNav";
+import About from "./components/About";
+import Contact from "./components/Contact";
+import MySkills from "./components/MySkills";
+import Home from "./components/Home";
+import Work from "./components/Work";
+
+import "./App.scss";
+
+const ROUTES = [
+  {
+    path: "/about",
+    component: About,
+  },
+  {
+    path: "/contact",
+    component: Contact,
+  },
+  {
+    path: "/skill",
+    component: MySkills,
+  },
+  {
+    path: "/home",
+    component: Home,
+  },
+  {
+    path: "/",
+    component: Home,
+  },
+  {
+    path: "/work",
+    component: Work,
+  },
+];
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <BrowserRouter>
+        <SideNav />
+        <Routes>
+          {ROUTES.map((route, i) => (
+            <Route path={route.path} element={<route.component />} />
+          ))}
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
