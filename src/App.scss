@@ -117,7 +117,7 @@ button:focus {
   .my-info-para {
     width: 50%;
   }
-  .btn {
+  .link {
     padding-left: 50px;
   }
   h2 {
@@ -211,6 +211,7 @@ button:focus {
 }
 .contact {
   display: flex;
+  justify-content: space-between;
   height: 100vh;
   .contact-form {
     .html,
